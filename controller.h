@@ -6,7 +6,7 @@ using namespace std;
 Astronauta* astronautas;
 Voo* voos;
 
-void createAstronauta(string cpf, string name, int age);
+void createAstronauta();
 void createVoo();
 
 

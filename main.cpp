@@ -1,4 +1,4 @@
-#include "astronauta.h"
+#include "controller.h"
 
 void exibirEscolhas()
 {
@@ -23,6 +23,9 @@ void exibirEscolhas()
         {
         case 0:
             cout << "Encerrando programa...";
+            break;
+        case 1:
+            createAstronauta();
             break;
         default:
             cout << "Escolha invalida!" << endl;
