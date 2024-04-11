@@ -1,31 +1,29 @@
 #ifndef VOO_H
 #define VOO_H
-#include <iostream>
 #include "astronauta.h"
-
 using namespace std;
 
-class voo
+class Voo
 {
     private:           
         int id;
-        astronauta* members;
+        Astronauta* members;
         int numMembers;
         string status;
+        static int total;
 
     public:
-        static int total;
-        voo();
-        voo(int id);
+        Voo();
+        Voo(int id);
 
         int getId();
-        astronauta* getMembers();
+        Astronauta* getMembers();
         int getNumMembers();
         string getStatus();
         static int getTotal();
 
         void setId(int id);
-        void setMembers(astronauta* members);
+        void setMembers(Astronauta* members);
         void setNumMembers(int numMembers);
         void setStatus(string status);
 };

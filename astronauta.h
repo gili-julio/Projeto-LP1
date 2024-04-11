@@ -4,22 +4,24 @@
 
 using namespace std;
 
-class astronauta
+class Astronauta
 {
     private:             
         string cpf;
         string name;
         int age;
         string status; 
+        static int total;
 
     public:
-        astronauta();
-        astronauta(string cpf, string name, int age);
+        Astronauta();
+        Astronauta(string cpf, string name, int age);
 
         int getAge();
         string getCpf();
         string getName();
         string getStatus();
+        static int getTotal();
 
         void setAge(int age);
         void setCpf(string cpf);

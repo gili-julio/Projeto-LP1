@@ -1,53 +1,63 @@
 #include "astronauta.h"
 
+int Astronauta::total = 0;
+
 //Construtores
-astronauta::astronauta()
+Astronauta::Astronauta()
 {
-    astronauta::cpf = "000.000.000-00";
-    astronauta::name = "unknown";
-    astronauta::age = 0;
-    astronauta::status = "disponivel";
+    Astronauta::cpf = "000.000.000-00";
+    Astronauta::name = "unknown";
+    Astronauta::age = 0;
+    Astronauta::status = "disponivel";
+
+    Astronauta::total++;
 }
-astronauta::astronauta(string cpf, string name, int age)
+Astronauta::Astronauta(string cpf, string name, int age)
 {
-    astronauta::cpf = cpf;
-    astronauta::name = name;
-    astronauta::age = age;
-    astronauta::status = "disponivel";
+    Astronauta::cpf = cpf;
+    Astronauta::name = name;
+    Astronauta::age = age;
+    Astronauta::status = "disponivel";
+
+    Astronauta::total++;
 }
 
 //Getters
-int astronauta::getAge()
+int Astronauta::getAge()
 {
-    return astronauta::age;
+    return Astronauta::age;
 }
-string astronauta::getCpf()
+string Astronauta::getCpf()
 {
-    return astronauta::cpf;
+    return Astronauta::cpf;
 }
-string astronauta::getName()
+string Astronauta::getName()
 {
-    return astronauta::name;
+    return Astronauta::name;
 }
-string astronauta::getStatus()
+string Astronauta::getStatus()
 {
-    return astronauta::status;
+    return Astronauta::status;
+}
+int Astronauta::getTotal()
+{
+    return Astronauta::total;
 }
 
 //Setters
-void astronauta::setAge(int age)
+void Astronauta::setAge(int age)
 {
-    astronauta::age = age;
+    Astronauta::age = age;
 }
-void astronauta::setCpf(string cpf)
+void Astronauta::setCpf(string cpf)
 {
-    astronauta::cpf = cpf;
+    Astronauta::cpf = cpf;
 }
-void astronauta::setName(string name)
+void Astronauta::setName(string name)
 {
-    astronauta::name = name;
+    Astronauta::name = name;
 }
-void astronauta::setStatus(string status)
+void Astronauta::setStatus(string status)
 {
-    astronauta::status = status;
+    Astronauta::status = status;
 }

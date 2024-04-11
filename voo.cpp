@@ -1,63 +1,63 @@
 #include "voo.h"
 
-int voo::total = 0;
+int Voo::total = 0;
 
 //Construtores
-voo::voo()
+Voo::Voo()
 {
-    voo::id = voo::total;
-    voo::members = new astronauta[0];
-    voo::numMembers = 0;
-    voo::status = "planejamento";
+    Voo::id = Voo::total;
+    Voo::members = new Astronauta[0];
+    Voo::numMembers = 0;
+    Voo::status = "planejamento";
 
-    voo::total++;
+    Voo::total++;
 }
-voo::voo(int id)
+Voo::Voo(int id)
 {
-    voo::id = id;
-    voo::members = new astronauta[0];
-    voo::numMembers = 0;
-    voo::status = "planejamento";
+    Voo::id = id;
+    Voo::members = new Astronauta[0];
+    Voo::numMembers = 0;
+    Voo::status = "planejamento";
 
-    voo::total++;
+    Voo::total++;
 }
 
 //Getters
-int voo::getId()
+int Voo::getId()
 {
-    return voo::id;
+    return Voo::id;
 }
-astronauta* voo::getMembers()
+Astronauta* Voo::getMembers()
 {
-    return voo::members;
+    return Voo::members;
 }
-int voo::getNumMembers()
+int Voo::getNumMembers()
 {
-    return voo::numMembers;
+    return Voo::numMembers;
 }
-string voo::getStatus()
+string Voo::getStatus()
 {
-    return voo::status;
+    return Voo::status;
 }
-int voo::getTotal()
+int Voo::getTotal()
 {
-    return voo::total;
+    return Voo::total;
 }
 
 //Setters
-void voo::setId(int id)
+void Voo::setId(int id)
 {
-    voo::id = id;
+    Voo::id = id;
 }
-void voo::setMembers(astronauta *members)
+void Voo::setMembers(Astronauta *members)
 {
-    voo::members = members;
+    Voo::members = members;
 }
-void voo::setNumMembers(int numMembers)
+void Voo::setNumMembers(int numMembers)
 {
-    voo::numMembers = numMembers;
+    Voo::numMembers = numMembers;
 }
-void voo::setStatus(string status)
+void Voo::setStatus(string status)
 {
-    voo::status = status;
+    Voo::status = status;
 }
