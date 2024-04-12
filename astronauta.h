@@ -1,6 +1,7 @@
 #ifndef ASTRONAUTA_H
 #define ASTRONAUTA_H
 #include <iostream>
+#include <string>
 
 using namespace std;
 

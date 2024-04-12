@@ -1,5 +1,7 @@
 #include "controller.h"
 
+
+
 void exibirEscolhas()
 {
     int escolha;
@@ -15,7 +17,7 @@ void exibirEscolhas()
         cout << "6 - Explodir voo (por id)" << endl ;
         cout << "7 - Finalizar um voo (por id)" << endl ;
         cout << "8 - Listar todos os voos" << endl ;
-        cout << "9 - Listar todos os voos" << endl ;
+        cout << "9 - Listar todos os astronautas mortos" << endl ;
         cout << "Escolha uma acao: ";
         cin >> escolha;
 
@@ -26,6 +28,9 @@ void exibirEscolhas()
             break;
         case 1:
             createAstronauta();
+            break;
+        case 9:
+            imprimirAstronautas();
             break;
         default:
             cout << "Escolha invalida!" << endl;

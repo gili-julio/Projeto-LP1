@@ -1,13 +1,23 @@
 #include "controller.h"
 
-Astronauta* astronautas = NULL;
-Voo* voos = NULL;
+vector<Astronauta> Controller::astronautas;
+
+static void addAstronauta(Astronauta& a)
+{
+    Controller::astronautas.push_back(a);
+}
+static void printAstronautas()
+{
+    for (Astronauta a : Controller::astronautas)
+    {
+        cout << "Nome: " << a.getName() << ", CPF: " << a.getCpf() << ", Idade: " << a.getAge() << ", Status: " << a.getStatus() << endl;
+    }
+}
 
 void createAstronauta()
 {
     string cpf, name;
     int age;
-
     cout << "CPF: ";
     cin >> cpf;
     cout << "Nome: ";
@@ -16,10 +26,14 @@ void createAstronauta()
     cin >> age;
 
     Astronauta astronauta(cpf, name, age);
+    addAstronauta(astronauta);
     cout << "Astronauta " << astronauta.getName() << " criado com sucesso." << endl;
-    astronautas = (Astronauta*) realloc(astronautas, astronauta.getTotal() * sizeof(Astronauta));
-    astronautas[astronauta.getTotal()-1] = astronauta;
 }
+void imprimirAstronautas()
+{
+    printAstronautas();
+}
+
 void createVoo()
 {
 
