@@ -31,6 +31,9 @@ void exibirEscolhas()
         case 2:
             createVoo();
             break;
+        case 3:
+            addAstronautaEmVoo();
+            break;
         case 8:
             listarVoos();
             break;

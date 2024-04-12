@@ -24,6 +24,16 @@ static void printAstronautasMortos()
         }
     }
 }
+static Astronauta& buscarAstronauta(string cpf)
+{
+    for (Astronauta& a : Controller::astronautas)
+    {
+        if(a.getCpf() == cpf)
+        {
+            return a;
+        }
+    }
+}
 
 void createAstronauta()
 {
@@ -56,6 +66,13 @@ static void addVoo(Voo& v)
 {
     Controller::voos.push_back(v);
 }
+static void printMembers(vector<Astronauta>& astronautas)
+{
+    for (Astronauta a : astronautas)
+    {
+        cout << "Nome: " << a.getName() << ", CPF: " << a.getCpf() << ", Idade: " << a.getAge() << ", Status: " << a.getStatus() << endl;
+    }
+}
 static void printVoosPlanejados()
 {
     cout << "Voos em Planejamento:" << endl;
@@ -63,7 +80,8 @@ static void printVoosPlanejados()
     {
         if(v.getStatus() == "planejamento")
         {
-            cout << "Id: " << v.getId() << ", Passageiros: " << v.getMembers() << endl;
+            cout << "Id: " << v.getId() << ", Passageiros: " << endl;
+            printMembers(v.getMembers());
         }
     }
 }
@@ -74,7 +92,8 @@ static void printVoosEmCurso()
     {
         if(v.getStatus() == "em_curso")
         {
-            cout << "Id: " << v.getId() << ", Passageiros: " << v.getMembers() << endl;
+            cout << "Id: " << v.getId() << ", Passageiros: " << endl;
+            printMembers(v.getMembers());
         }
     }
 }
@@ -85,7 +104,8 @@ static void printVoosFinalizados()
     {
         if(v.getStatus() != "planejamento" && v.getStatus() != "em_curso")
         {
-            cout << "Id: " << v.getId() << ", Passageiros: " << v.getMembers() << ", Status: " << v.getStatus() << endl;
+            cout << "Id: " << v.getId() << ", Status: " << v.getStatus() << ", Passageiros: " << endl;
+            printMembers(v.getMembers());
         }
     }
 }
@@ -105,4 +125,47 @@ void listarVoos()
     printVoosPlanejados();
     printVoosEmCurso();
     printVoosFinalizados();
+}
+void addAstronautaEmVoo()
+{
+    int id = 0;
+    cout << "Id do voo: ";
+    cin >> id;
+    Voo* possivelVoo = nullptr;
+    for (Voo& v : Controller::voos)
+    {
+        if(v.getId() == id)
+        {
+            possivelVoo = &v;
+            break;
+        }
+    }
+    if(possivelVoo == nullptr)
+    {
+        cout << "Voo não encontrado." << endl;
+        return;
+    }
+
+    string cpf = "";
+    cout << "Cpf do astronauta: ";
+    cin >> cpf;
+    Astronauta* possivelAstronauta = nullptr;
+    for (Astronauta& a : Controller::astronautas)
+    {
+        if(a.getCpf() == cpf)
+        {
+            possivelAstronauta = &a;
+            break;
+        }
+    }
+    if(possivelAstronauta == nullptr)
+    {
+        cout << "Astronauta não encontrado." << endl;
+        return;
+    }
+
+    vector<Astronauta>& membros = possivelVoo->getMembers();
+    membros.push_back(*possivelAstronauta);
+    possivelVoo->setNumMembers(possivelVoo->getNumMembers()+1);
+    possivelVoo->setMembers(membros);
 }

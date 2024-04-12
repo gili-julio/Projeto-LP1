@@ -1,13 +1,14 @@
 #ifndef VOO_H
 #define VOO_H
 #include "astronauta.h"
+#include <vector>
 using namespace std;
 
 class Voo
 {
     private:           
         int id;
-        Astronauta* members;
+        vector<Astronauta> members;
         int numMembers;
         string status;
         static int total;
@@ -15,15 +16,16 @@ class Voo
     public:
         Voo();
         Voo(int id);
+        //Voo(Voo &v);
 
         int getId();
-        Astronauta* getMembers();
+        vector<Astronauta>& getMembers();
         int getNumMembers();
         string getStatus();
         static int getTotal();
 
         void setId(int id);
-        void setMembers(Astronauta* members);
+        void setMembers(vector<Astronauta>& members);
         void setNumMembers(int numMembers);
         void setStatus(string status);
 };

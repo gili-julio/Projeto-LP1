@@ -6,7 +6,7 @@ int Voo::total = 0;
 Voo::Voo()
 {
     Voo::id = Voo::total;
-    Voo::members = new Astronauta[0];
+    Voo::members;
     Voo::numMembers = 0;
     Voo::status = "planejamento";
 
@@ -15,19 +15,29 @@ Voo::Voo()
 Voo::Voo(int id)
 {
     Voo::id = id;
-    Voo::members = new Astronauta[0];
+    Voo::members;
     Voo::numMembers = 0;
     Voo::status = "planejamento";
 
     Voo::total++;
 }
+/*
+Voo::Voo(Voo &v)
+{
+    Voo::id = v.getId();
+    Voo::members = v.getMembers();
+    Voo::numMembers = v.getNumMembers();
+    Voo::status = v.getStatus();
+
+    Voo::total++;
+}*/
 
 //Getters
 int Voo::getId()
 {
     return Voo::id;
 }
-Astronauta* Voo::getMembers()
+vector<Astronauta>& Voo::getMembers()
 {
     return Voo::members;
 }
@@ -49,7 +59,7 @@ void Voo::setId(int id)
 {
     Voo::id = id;
 }
-void Voo::setMembers(Astronauta *members)
+void Voo::setMembers(vector<Astronauta>& members)
 {
     Voo::members = members;
 }

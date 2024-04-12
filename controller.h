@@ -1,7 +1,6 @@
 #ifndef CONTROLLER_H
 #define CONTROLLER_H
 #include "voo.h"
-#include <vector>
 using namespace std;
 
 class Controller
@@ -11,9 +10,11 @@ class Controller
         static void addAstronauta(Astronauta& a);
         static void printAstronautas();
         static void printAstronautasMortos();
+        static Astronauta& buscarAstronauta(string cpf);
 
         static vector<Voo> voos;
         static void addVoo(Voo& v);
+        static void printMembers(vector<Astronauta>& astronautas);
         static void printVoosPlanejados();
         static void printVoosEmCurso();
         static void printVoosFinalizados();
@@ -24,6 +25,7 @@ void listarAstronautasMortos();
 
 void createVoo();
 void listarVoos();
+void addAstronautaEmVoo();
 
 
 
