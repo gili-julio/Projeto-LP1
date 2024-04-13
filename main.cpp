@@ -2,10 +2,7 @@
 
 void exibirEscolhas()
 {
-    int escolha;
-    while(escolha != 0)
-    {
-        
+        int escolha;
         cout << "0 - Encerrar o programa" << endl ;
         cout << "1 - Cadastrar Astronauta" << endl ;
         cout << "2 - Cadastrar Voo" << endl ;
@@ -17,6 +14,10 @@ void exibirEscolhas()
         cout << "8 - Listar todos os voos" << endl ;
         cout << "9 - Listar todos os astronautas mortos" << endl ;
         cout << "10 - Listar todos os astronautas (versao teste do programa)" << endl ;
+
+    while(escolha != 0)
+    {
+        cout << "11 - Listar todas as acoes de novo" << endl ;
         cout << "Escolha uma acao: ";
         cin >> escolha;
 
@@ -32,7 +33,10 @@ void exibirEscolhas()
             createVoo();
             break;
         case 3:
-            addAstronautaEmVoo();
+            addAstronautaInVoo();
+            break;
+        case 4:
+            removeAstronautaInVoo();
             break;
         case 8:
             listarVoos();
@@ -42,6 +46,19 @@ void exibirEscolhas()
             break;
         case 10:
             listarAstronautas();
+            break;
+        case 11:
+            cout << "0 - Encerrar o programa" << endl ;
+            cout << "1 - Cadastrar Astronauta" << endl ;
+            cout << "2 - Cadastrar Voo" << endl ;
+            cout << "3 - Adicionar Astronauta em Voo (por cpf)" << endl ;
+            cout << "4 - Remover Astronauta de Voo (por cpf)" << endl ;
+            cout << "5 - Lançar um voo (por id)" << endl ;
+            cout << "6 - Explodir voo (por id)" << endl ;
+            cout << "7 - Finalizar um voo (por id)" << endl ;
+            cout << "8 - Listar todos os voos" << endl ;
+            cout << "9 - Listar todos os astronautas mortos" << endl ;
+            cout << "10 - Listar todos os astronautas (versao teste do programa)" << endl ;
             break;
         default:
             cout << "Escolha invalida!" << endl;

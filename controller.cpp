@@ -127,9 +127,9 @@ void listarVoos()
     printVoosEmCurso();
     printVoosFinalizados();
 }
-void addAstronautaEmVoo()
+void addAstronautaInVoo()
 {
-    int id = 0;
+    int id;
     cout << "Id do voo: ";
     cin >> id;
     Voo* possivelVoo = nullptr;
@@ -147,7 +147,7 @@ void addAstronautaEmVoo()
         return;
     }
 
-    string cpf = "";
+    string cpf;
     cout << "Cpf do astronauta: ";
     cin >> cpf;
     Astronauta* possivelAstronauta = nullptr;
@@ -169,4 +169,43 @@ void addAstronautaEmVoo()
     membros.push_back(*possivelAstronauta);
     possivelVoo->setNumMembers(possivelVoo->getNumMembers()+1);
     possivelVoo->setMembers(membros);
+    cout << "Astronauta adicionado com sucesso." << endl;
+}
+void removeAstronautaInVoo()
+{
+    int id;
+    cout << "Id do voo: ";
+    cin >> id;
+    Voo* possivelVoo = nullptr;
+    for (Voo& v : Controller::voos)
+    {
+        if(v.getId() == id)
+        {
+            possivelVoo = &v;
+            break;
+        }
+    }
+    if(possivelVoo == nullptr)
+    {
+        cout << "Voo não encontrado." << endl;
+        return;
+    }
+
+    string cpf;
+    cout << "Cpf do astronauta: ";
+    cin >> cpf;
+
+    vector<Astronauta>& membros = possivelVoo->getMembers();
+    vector<Astronauta> novosMembros;
+    for (Astronauta& a : membros)
+    {
+        if(a.getCpf() != cpf)
+        {
+            novosMembros.push_back(a);
+        }else{
+            possivelVoo->setNumMembers(possivelVoo->getNumMembers()-1);
+        }
+    }
+    possivelVoo->setMembers(novosMembros);
+    cout << "Astronauta removido com sucesso." << endl;
 }

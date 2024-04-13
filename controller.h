@@ -25,7 +25,8 @@ void listarAstronautasMortos();
 
 void createVoo();
 void listarVoos();
-void addAstronautaEmVoo();
+void addAstronautaInVoo();
+void removeAstronautaInVoo();
 
 
 
