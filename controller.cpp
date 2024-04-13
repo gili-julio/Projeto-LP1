@@ -41,8 +41,9 @@ void createAstronauta()
     int age;
     cout << "CPF: ";
     cin >> cpf;
+    cin.ignore(); //ignorar o caractere de nova linha
     cout << "Nome: ";
-    cin >> name;
+    getline(cin, name); //lê a linha inteira, incluindo espaços
     cout << "Idade: ";
     cin >> age;
 
@@ -75,36 +76,36 @@ static void printMembers(vector<Astronauta>& astronautas)
 }
 static void printVoosPlanejados()
 {
-    cout << "Voos em Planejamento:" << endl;
+    cout << ">>> Voos em Planejamento:" << endl;
     for (Voo v : Controller::voos)
     {
         if(v.getStatus() == "planejamento")
         {
-            cout << "Id: " << v.getId() << ", Passageiros: " << endl;
+            cout << "> Id: " << v.getId() << ", Passageiros: " << endl;
             printMembers(v.getMembers());
         }
     }
 }
 static void printVoosEmCurso()
 {
-    cout << "Voos em curso:" << endl;
+    cout << ">>> Voos em curso:" << endl;
     for (Voo v : Controller::voos)
     {
         if(v.getStatus() == "em_curso")
         {
-            cout << "Id: " << v.getId() << ", Passageiros: " << endl;
+            cout << "> Id: " << v.getId() << ", Passageiros: " << endl;
             printMembers(v.getMembers());
         }
     }
 }
 static void printVoosFinalizados()
 {
-    cout << "Voos finalizados:" << endl;
+    cout << ">>> Voos finalizados:" << endl;
     for (Voo v : Controller::voos)
     {
         if(v.getStatus() != "planejamento" && v.getStatus() != "em_curso")
         {
-            cout << "Id: " << v.getId() << ", Status: " << v.getStatus() << ", Passageiros: " << endl;
+            cout << "> Id: " << v.getId() << ", Status: " << v.getStatus() << ", Passageiros: " << endl;
             printMembers(v.getMembers());
         }
     }
