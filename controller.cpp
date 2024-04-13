@@ -91,7 +91,7 @@ static void printVoosEmCurso()
     cout << ">>> Voos em curso:" << endl;
     for (Voo v : Controller::voos)
     {
-        if(v.getStatus() == "em_curso")
+        if(v.getStatus() == "em curso")
         {
             cout << "> Id: " << v.getId() << ", Passageiros: " << endl;
             printMembers(v.getMembers());
@@ -103,7 +103,7 @@ static void printVoosFinalizados()
     cout << ">>> Voos finalizados:" << endl;
     for (Voo v : Controller::voos)
     {
-        if(v.getStatus() != "planejamento" && v.getStatus() != "em_curso")
+        if(v.getStatus() != "planejamento" && v.getStatus() != "em curso")
         {
             cout << "> Id: " << v.getId() << ", Status: " << v.getStatus() << ", Passageiros: " << endl;
             printMembers(v.getMembers());
@@ -208,4 +208,57 @@ void removeAstronautaInVoo()
     }
     possivelVoo->setMembers(novosMembros);
     cout << "Astronauta removido com sucesso." << endl;
+}
+void launchVoo()
+{
+    int id;
+    cout << "Id do voo: ";
+    cin >> id;
+    Voo* possivelVoo = nullptr;
+    for (Voo& v : Controller::voos)
+    {
+        if(v.getId() == id)
+        {
+            possivelVoo = &v;
+            vector<Astronauta>& membros = possivelVoo->getMembers();
+            if(possivelVoo->getNumMembers() <= 0)
+            {
+                cout << "Não foi possível lançar o voo " << id << "." << endl;
+                cout << "É necessário que tenha pelo menos 1 astronauta no voo." << endl;
+                return;
+            }
+            for(Astronauta& a : membros)
+            {
+                for(Astronauta& astro : Controller::astronautas)
+                {
+                    if(a.getCpf() == astro.getCpf())
+                    {
+                        if(astro.getStatus() != "disponivel")
+                        {
+                            cout << "Não foi possível lançar o voo " << id << "." << endl;
+                            cout << "Astronauta " << a.getName() << " está " << a.getStatus() << "." << endl;
+                            return;
+                        }
+                    }
+                }
+            }
+            break;
+        }
+    }
+
+    //Voo pode ser lançado
+    possivelVoo->setStatus("em curso");
+    vector<Astronauta>& novoMembros = possivelVoo->getMembers();
+    for(Astronauta& a : novoMembros)
+    {
+        for(Astronauta& astro : Controller::astronautas)
+        {
+            if(a.getCpf() == astro.getCpf())
+            {
+                a.setStatus("indisponivel");
+            }
+        }
+    }
+    possivelVoo->setMembers(novoMembros);
+    cout << "Voo " << possivelVoo->getId() << " lançado com sucesso." << endl;
 }

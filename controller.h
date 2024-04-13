@@ -27,6 +27,7 @@ void createVoo();
 void listarVoos();
 void addAstronautaInVoo();
 void removeAstronautaInVoo();
+void launchVoo();
 
 
 

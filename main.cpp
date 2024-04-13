@@ -38,6 +38,9 @@ void exibirEscolhas()
         case 4:
             removeAstronautaInVoo();
             break;
+        case 5:
+            launchVoo();
+            break;
         case 8:
             listarVoos();
             break;
