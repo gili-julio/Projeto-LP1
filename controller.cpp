@@ -163,6 +163,11 @@ void addAstronautaInVoo()
     {
         if(v.getId() == id)
         {
+            if(v.getStatus() != "planejamento")
+            {
+                cout << "Voo informado não está em fase de planejamento." << endl;
+                return;
+            }
             possivelVoo = &v;
             break;
         }
@@ -207,6 +212,11 @@ void removeAstronautaInVoo()
     {
         if(v.getId() == id)
         {
+            if(v.getStatus() != "planejamento")
+            {
+                cout << "Voo informado não está em fase de planejamento." << endl;
+                return;
+            }
             possivelVoo = &v;
             break;
         }
