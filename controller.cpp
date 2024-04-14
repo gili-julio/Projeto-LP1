@@ -23,7 +23,19 @@ static void printAstronautasMortos()
     {
         if(a.getStatus() == "morto")
         {
-            cout << "> Nome: " << a.getName() << ", CPF: " << a.getCpf() << ", Idade: " << a.getAge() << ", Voos que participou: " << endl;
+            cout << "> Nome: " << a.getName() << ", CPF: " << a.getCpf() << ", Idade: " << a.getAge() << ", Voos que participou: {";
+            int aux = 0;
+            for(int id : a.getIdVoosParticipados())
+            {
+                if(aux == 0)
+                {
+                    cout << id;
+                } else {
+                    cout << ", " << id;
+                }
+                aux++;
+            }
+            cout << "}" << endl;
             count++;
         }
     }
