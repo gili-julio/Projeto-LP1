@@ -322,6 +322,9 @@ void launchVoo()
             if(a.getCpf() == astro.getCpf())
             {
                 astro.setStatus("indisponivel");
+                vector<int>& voosParticipados = astro.getIdVoosParticipados();
+                voosParticipados.push_back(possivelVoo->getId());
+                astro.setIdVoosParticipados(voosParticipados);
             }
         }
     }
