@@ -41,6 +41,9 @@ void exibirEscolhas()
         case 5:
             launchVoo();
             break;
+        case 7:
+            finishVoo();
+            break;
         case 8:
             listarVoos();
             break;
