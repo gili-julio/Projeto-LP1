@@ -39,6 +39,10 @@ string Astronauta::getStatus()
 {
     return Astronauta::status;
 }
+vector<int>& Astronauta::getIdVoosParticipados()
+{
+    return Astronauta::idVoosParticipados;
+}
 int Astronauta::getTotal()
 {
     return Astronauta::total;
@@ -60,4 +64,8 @@ void Astronauta::setName(string name)
 void Astronauta::setStatus(string status)
 {
     Astronauta::status = status;
+}
+void Astronauta::setIdVoosParticipados(vector<int>& ids)
+{
+    Astronauta::idVoosParticipados = ids;
 }

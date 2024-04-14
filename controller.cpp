@@ -18,19 +18,19 @@ static void printAstronautas()
 static void printAstronautasMortos()
 {
     int count = 0;
-    cout << "Listando astronautas mortos..." << endl;
+    cout << ">>> Listando astronautas mortos..." << endl;
     for (Astronauta a : Controller::astronautas)
     {
         if(a.getStatus() == "morto")
         {
-            cout << "Nome: " << a.getName() << ", CPF: " << a.getCpf() << ", Idade: " << a.getAge() << ", Status: " << a.getStatus() << endl;
+            cout << "> Nome: " << a.getName() << ", CPF: " << a.getCpf() << ", Idade: " << a.getAge() << ", Voos que participou: " << endl;
             count++;
         }
     }
     if(count == 0){
-        cout << "Nenhum astronauta morto. :D" << endl;
+        cout << ">> Nenhum astronauta morto. :D" << endl;
     } else {
-        cout << "Total: " << count << " astronautas mortos. ;(" << endl;
+        cout << ">> Total: " << count << " astronautas mortos. ;(" << endl;
     }
 }
 static Astronauta& buscarAstronauta(string cpf)

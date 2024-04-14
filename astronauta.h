@@ -2,6 +2,7 @@
 #define ASTRONAUTA_H
 #include <iostream>
 #include <string>
+#include <vector>
 
 using namespace std;
 
@@ -11,7 +12,8 @@ class Astronauta
         string cpf;
         string name;
         int age;
-        string status; 
+        string status;
+        vector<int> idVoosParticipados;
         static int total;
 
     public:
@@ -22,12 +24,14 @@ class Astronauta
         string getCpf();
         string getName();
         string getStatus();
+        vector<int>& getIdVoosParticipados();
         static int getTotal();
 
         void setAge(int age);
         void setCpf(string cpf);
         void setName(string name);
         void setStatus(string status);
+        void setIdVoosParticipados(vector<int>& ids);
 };
 
 #endif
