@@ -1,8 +1,9 @@
 #include "controller.h"
 
 //Parte dos Astronautas
-vector<Astronauta> Controller::astronautas;
 
+//Auxiliares
+vector<Astronauta> Controller::astronautas;
 static void addAstronauta(Astronauta& a)
 {
     Controller::astronautas.push_back(a);
@@ -35,12 +36,21 @@ static Astronauta& buscarAstronauta(string cpf)
     }
 }
 
+//Funcionalidades
 void createAstronauta()
 {
     string cpf, name;
     int age;
     cout << "CPF: ";
     cin >> cpf;
+    for(Astronauta& a : Controller::astronautas)
+    {
+        if(a.getCpf() == cpf)
+        {
+            cout << "Cpf informado já cadastrado." << endl;
+            return;
+        }
+    }
     cin.ignore(); //ignorar o caractere de nova linha
     cout << "Nome: ";
     getline(cin, name); //lê a linha inteira, incluindo espaços
@@ -61,8 +71,9 @@ void listarAstronautasMortos()
 }
 
 //Parte dos Voos
-vector<Voo> Controller::voos;
 
+//Auxiliares
+vector<Voo> Controller::voos;
 static void addVoo(Voo& v)
 {
     Controller::voos.push_back(v);
@@ -117,11 +128,20 @@ static void printVoosFinalizados()
     }
 }
 
+//Funcionalidades
 void createVoo()
 {
     int id;
-    cout << "Id: ";
+    cout << "Id do voo: ";
     cin >> id;
+    for(Voo& v : Controller::voos)
+    {
+        if(v.getId() == id)
+        {
+            cout << "Id do voo informado já cadastrado." << endl;
+            return;
+        }
+    }
 
     Voo voo(id);
     addVoo(voo);
