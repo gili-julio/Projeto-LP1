@@ -69,9 +69,15 @@ static void addVoo(Voo& v)
 }
 static void printMembers(vector<Astronauta>& astronautas)
 {
-    for (Astronauta a : astronautas)
+    for (Astronauta& a : astronautas)
     {
-        cout << "Nome: " << a.getName() << ", CPF: " << a.getCpf() << ", Idade: " << a.getAge() << ", Status: " << a.getStatus() << endl;
+        for (Astronauta& astro : Controller::astronautas)
+        {
+            if(a.getCpf() == astro.getCpf())
+            {
+                cout << "Nome: " << astro.getName() << ", CPF: " << astro.getCpf() << ", Idade: " << astro.getAge() << ", Status: " << astro.getStatus() << endl;
+            }
+        }
     }
 }
 static void printVoosPlanejados()
@@ -236,7 +242,7 @@ void launchVoo()
                         if(astro.getStatus() != "disponivel")
                         {
                             cout << "Não foi possível lançar o voo " << id << "." << endl;
-                            cout << "Astronauta " << a.getName() << " está " << a.getStatus() << "." << endl;
+                            cout << "Astronauta " << astro.getName() << " está " << astro.getStatus() << "." << endl;
                             return;
                         }
                     }
@@ -255,7 +261,7 @@ void launchVoo()
         {
             if(a.getCpf() == astro.getCpf())
             {
-                a.setStatus("indisponivel");
+                astro.setStatus("indisponivel");
             }
         }
     }
