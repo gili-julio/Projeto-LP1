@@ -308,6 +308,47 @@ void launchVoo()
     possivelVoo->setMembers(novoMembros);
     cout << "Voo " << possivelVoo->getId() << " lançado com sucesso." << endl;
 }
+void explodeVoo()
+{
+    int id;
+    cout << "Id do voo: ";
+    cin >> id;
+    Voo* possivelVoo = nullptr;
+    for (Voo& v : Controller::voos)
+    {
+        if(v.getId() == id)
+        {
+            if(v.getStatus() != "em curso")
+            {
+                cout << "Voo informado não está em curso." << endl;
+                return;
+            }
+            possivelVoo = &v;
+            break;
+        }
+    }
+    if(possivelVoo == nullptr)
+    {
+        cout << "Voo não encontrado." << endl;
+        return;
+    }
+
+    //Voo pode ser explodido
+    possivelVoo->setStatus("finalizado sem sucesso");
+    vector<Astronauta>& novoMembros = possivelVoo->getMembers();
+    for(Astronauta& a : novoMembros)
+    {
+        for(Astronauta& astro : Controller::astronautas)
+        {
+            if(a.getCpf() == astro.getCpf())
+            {
+                astro.setStatus("morto");
+            }
+        }
+    }
+    possivelVoo->setMembers(novoMembros);
+    cout << "Voo " << possivelVoo->getId() << " finalizado SEM sucesso. :(" << endl;
+}
 void finishVoo()
 {
     int id;
