@@ -255,6 +255,11 @@ void launchVoo()
     {
         if(v.getId() == id)
         {
+            if(v.getStatus() != "planejamento")
+            {
+                cout << "Voo informado não está em fase de planejamento." << endl;
+                return;
+            }
             possivelVoo = &v;
             vector<Astronauta>& membros = possivelVoo->getMembers();
             if(possivelVoo->getNumMembers() <= 0)
