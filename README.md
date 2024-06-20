@@ -68,5 +68,5 @@ Este projeto visa explorar conceitos abordados na disciplina de LP1 e revisar o 
 ## Uso (funcionando em breve...)
 
 Abra o terminal e siga os passos abaixo:
-- make
+- g++ -o main main.cpp voo.cpp controller.cpp astronauta.cpp
 - ./main
