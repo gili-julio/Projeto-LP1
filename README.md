@@ -5,8 +5,8 @@ O projeto consiste em implementar um Sistema de Gestão de Astronautas e Voos es
 ## Índice
 
 - [Sobre](#sobre)
-- [Instalação do MinGW](#Instalando-o-MinGW-no-Windows-(Expandivel))
-- [Executar o programa](#Executar-o-programa)
+- [Instalação do MinGW](#instalando-o-mingw-no-windows-expandível)
+- [Executar o programa](#executar-o-programa)
 
 ## Sobre
 
