@@ -60,13 +60,56 @@ Este projeto visa explorar conceitos abordados na disciplina de LP1 e revisar o 
   - Lista todos os Astronautas com status "morto"
   - Lista cada atributo do Astronauta (cpf, nome, idade e voos participados)
 
-## Instalação
+## Instalando o MinGW no Windows (Expandível)
 
- - Instalar o MinGW
- - Ter configurado o comando Make
+<details>
+  <summary>Passo a passo para instalar o MinGW...</summary>
 
-## Uso (funcionando em breve...)
+### 1. Baixar o Instalador do MinGW
 
-Abra o terminal e siga os passos abaixo:
-- g++ -o main main.cpp voo.cpp controller.cpp astronauta.cpp
-- ./main
+1. Acesse o site oficial do MinGW: [MinGW](http://www.mingw.org/)
+2. Clique em "Download Installer" para baixar o instalador (`mingw-get-setup.exe`).
+
+### 2. Instalar o MinGW
+
+1. Execute o instalador baixado (`mingw-get-setup.exe`).
+2. Clique em "Install" na janela de boas-vindas.
+3. Escolha o diretório de instalação (o padrão é `C:\MinGW`) e clique em "Continue".
+4. Aguarde até que o instalador baixe os arquivos necessários e instale o MinGW.
+
+### 3. Configurar o MinGW
+
+1. Após a instalação, o `MinGW Installation Manager` será aberto automaticamente.
+2. No `MinGW Installation Manager`, selecione a opção "Basic Setup" no painel esquerdo.
+3. Marque as seguintes opções para instalação:
+   - `mingw32-gcc-g++`: Compilador para C++
+   - `mingw32-base`: Ferramentas básicas
+   - `mingw32-msys-base`: Ferramentas de MSYS
+4. Clique em "Installation" no menu superior e depois em "Apply Changes".
+5. Na janela que aparecer, clique em "Apply" para iniciar a instalação dos pacotes selecionados.
+6. Aguarde a conclusão da instalação.
+
+### 4. Adicionar MinGW ao PATH do Sistema
+
+1. Abra o `Painel de Controle`.
+2. Vá para `Sistema e Segurança` > `Sistema` > `Configurações avançadas do sistema`.
+3. Na aba `Avançado`, clique em `Variáveis de Ambiente`.
+4. Na seção `Variáveis do sistema`, encontre a variável `Path` e clique em `Editar`.
+5. Clique em `Novo` e adicione o caminho para o diretório `bin` do MinGW (por exemplo, `C:\MinGW\bin`).
+6. Clique em `OK` para fechar todas as janelas.
+
+### 5. Verificar a Instalação
+
+1. Abra o `Prompt de Comando` ou `PowerShell`.
+2. Digite `g++ --version` e pressione `Enter` para verificar se o compilador foi instalado corretamente. Você deve ver a versão do `g++` instalada.
+3. Digite `mingw32-make --version` e pressione `Enter` para verificar se o `make` foi instalado corretamente. Você deve ver a versão do `make` instalada.
+
+</details>
+
+
+## Executar o programa
+
+No terminal digite:
+- Compilar os arquivos: ```make``` ou ```mingw32-make```
+- Executar a aplicação: ```./main```
+- Limpar os arquivos de compilação: ```make clean``` ou ```mingw32-make clean```
